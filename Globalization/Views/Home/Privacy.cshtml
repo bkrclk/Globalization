@@ -1,0 +1,5 @@
+﻿@model Globalization.Dto.ViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+<button class="btn btn-success">@SharedLocalizer["Create"]</button>

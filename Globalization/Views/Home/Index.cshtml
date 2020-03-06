@@ -1,0 +1,31 @@
+﻿@model Globalization.Dto.ViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+
+<script>
+    function Abc() {
+
+
+            var pcLang = navigator.language || navigator.userLanguage;
+
+            var session = sessionStorage.getItem("LNG");
+
+            if (session != null) {
+
+
+
+                alert("Session var:" + session + "/" + window.location.href);
+            }
+            else {
+                  window.location.href = "?culture=" + pcLang;
+                alert("Session yok:"+ pcLang  + "/"+ window.location.href);
+              
+                
+            }
+
+        }
+</script>
+
+
+<button class="btn btn-success">@SharedLocalizer["Create"]</button>

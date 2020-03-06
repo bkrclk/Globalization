@@ -1,0 +1,57 @@
+﻿@model Globalization.Dto.ViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+
+<button class="btn btn-success">@SharedLocalizer["Create"]</button>
+
+
+
+<div class="col-md-4">
+    <div class="d-flex justify-content-center form_container">
+        @using (Html.BeginForm("Add", "Home", FormMethod.Get))
+        {
+            <div>
+                <b> @Html.ValidationSummary("*Marked fields need to be entered !", new { @class = "white" }) </b>
+            </div>
+            <div class="input-group mb-3">
+
+
+
+                <div class="row">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+
+                    <div>
+                        @Html.TextBoxFor(x => x.UserModel.UserName, new { @class = "form-control input_user", placeholder = "User name" })
+
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(x => x.UserModel.Password, new { @class = "form-control input_password", placeholder = "Password" })
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+            <button type="submit" name="submit" class="btn btn-success">Add</button>
+
+            <div><a href="~/Home/Index">Home Git</a></div>
+            <a asp-action="Index">Go to Home</a>
+        }
+    </div>
+</div>
